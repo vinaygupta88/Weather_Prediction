@@ -17,6 +17,13 @@ def predict(request):
 
 def submit(request):
     if request.method == "POST":
-        
-        return render(request, 'weather_app/result.html', {'result': result})
+        precipitation = float(request.POST.get('precipitation'))
+        maxTemp = float(request.POST.get('maxTemp'))
+        minTemp = float(request.POST.get('min-Temp'))
+        wind_speed = float(request.POST.get('wind_speed'))
+
+        input_data = np.array([[precipitation, maxTemp, minTemp, wind_speed]])
+        result = model.predict(input_data)[0]  # <- Here, result is defined
+
+        return render(request, 'weather_app/submit.html', {'result': result})
     return render(request, 'weather_app/predict.html')

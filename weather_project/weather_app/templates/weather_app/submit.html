@@ -1,0 +1,13 @@
+{% extends 'weather_app/base.html' %}
+
+{% block content %}
+<h1>🌤️ Prediction Result</h1>
+
+<div style="margin-top: 20px; font-size: 1.5rem; font-weight: bold;">
+    {{ prediction_text }}
+</div>
+
+<p style="margin-top: 30px;">
+    You can go back to the <a href="/predict/" style="color: #00ffff; text-decoration: underline;">prediction page</a> to try again.
+</p>
+{% endblock %}
