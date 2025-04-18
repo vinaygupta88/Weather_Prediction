@@ -86,7 +86,7 @@ pip install -r requirements.txt
 ### 4. Run the app
 
 ```bash
-python app.py
+python manage.py runserver
 ```
 
 Open [http://localhost:5000](http://localhost:5000) in your browser 🚀
