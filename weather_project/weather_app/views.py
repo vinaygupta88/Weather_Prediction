@@ -1,7 +1,8 @@
+from django.shortcuts import render
 import os
 import pickle
 import numpy as np
-from django.shortcuts import render
+
 
 model_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'rfp.pkl')
 model = pickle.load(open(model_path, 'rb'))
@@ -17,13 +18,11 @@ def predict(request):
 
 def submit(request):
     if request.method == "POST":
-        precipitation = float(request.POST.get('precipitation'))
-        maxTemp = float(request.POST.get('maxTemp'))
-        minTemp = float(request.POST.get('min-Temp'))
-        wind_speed = float(request.POST.get('wind_speed'))
-
-        input_data = np.array([[precipitation, maxTemp, minTemp, wind_speed]])
-        result = model.predict(input_data)[0]  # <- Here, result is defined
-
+        precipitation=float(request.POST['precipitation'])
+        maxTemp=float(request.POST['maxTemp'])
+        minTemp=float(request.POST['minTemp'])
+        wind=float(request.POST['wind'])
+        input_data = np.array([[precipitation, maxTemp, minTemp, wind]])
+        result = model.predict(input_data)[0]  # result is defined
         return render(request, 'weather_app/submit.html', {'result': result})
     return render(request, 'weather_app/predict.html')

@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Predictor</title>
     <link rel="stylesheet" href="{% static 'weather_app/css/style.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body class="background">
     <nav class="navbar">
@@ -14,17 +16,21 @@
         <div class="toggle" onclick="toggleMenu()">☰</div>
         <ul class="nav-links" id="nav-links">
             <li><a href="/">Home</a></li>
-            <li><a href="/predict/">Predict</a></li>
             <li><a href="/about/">About</a></li>
+            <li><a href="/predict/">Predict</a></li>
         </ul>
     </nav>
 
     <main class="content">
-        {% block content %}{% endblock %}
+        {% block content %}
+        
+        {% endblock %}
     </main>
 
     <footer>
-        <p>&copy; 2025 Weather Predictor</p>
+        <p>&copy; 2025 Weather Predictor | Developed by 
+            <a href="https://vinaygupta88.github.io/Myportfolio/" target="_blank" style="color: #00ccff; text-decoration: none;">Vinay
+        </p>
     </footer>
 
     <script src="{% static 'weather_app/js/script.js' %}"></script>
