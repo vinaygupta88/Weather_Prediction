@@ -23,6 +23,6 @@ def submit(request):
         minTemp=float(request.POST['minTemp'])
         wind=float(request.POST['wind'])
         input_data = np.array([[precipitation, maxTemp, minTemp, wind]])
-        result = model.predict(input_data)[0]  # result is defined
+        result = model.predict(input_data)[0]  
         return render(request, 'weather_app/submit.html', {'result': result})
     return render(request, 'weather_app/predict.html')
